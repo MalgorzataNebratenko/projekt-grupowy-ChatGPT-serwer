@@ -1,0 +1,41 @@
+# AudioRecord.py
+
+## set_speaking_volume(path_to_filename, speaking_volume)
+Metoda zmieniajaca glosnosc audio, pobiera ze sciezki plik audio, zwieksza glosnosc i podmienia plik.
+Jest wywolywana w metodzie record.
+
+## record(speaking_volume, folder_path)
+Argumenty uzywane w metodzie set_speaking_volume, 
+speaking_volume podawane w dB, 
+folder_path sciezka do miejsca, gdzie ma zapisywac pliki (w folderze recordings, ktory stworzy).
+
+Metoda nagywa dzwiek w "petli rzeczywistej"(potrzebne przerwanie pętli, jakis komunikat z serwera) w postaci plikow wav, 
+w folderze recordings.
+
+Pliki nazywane sa wedlug pelnej daty i czasu rzeczywistego.
+
+
+
+# AudioToText.py
+
+Podczas tworzenia obiektu, trzeba podac ściezke do plikow dzwiekowych (folder recordings)
+
+## convert_speech
+Sortuje w folderze recordings pliki, 
+nastepnie w petli "for" bierze kolejno pliki wav i przetwarza glos na tekst(string),
+po przetworzeniu usuwa plik i bierze nastepny, az folder bedzie pusty
+
+
+
+# TextToAudio.py
+
+## speaking_rate
+Wywolywana w konstruktorze, odpowiada za szybkosc mowy bota
+
+## speak_to_me(newText)
+Z podanego tekstu(stringa) w parametrze newText konwertuje na glos i odpala go bezposrednio, 
+zatrzymujac wszystkie polecenia do czasu zakonczenia mowy bota.
+
+## save_voice(netText, conversationName)
+Z podanego tekstu(stringa) w parametrze newText konwertuje na glos i
+zapisuje go w pliku mp3 o nazwie, ktora podaje sie w parametrze conversationName 
